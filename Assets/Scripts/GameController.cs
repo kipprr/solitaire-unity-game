@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ShuffleNS;
 
 public class GameController : MonoBehaviour
 {
@@ -10,7 +9,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         
-        
+        int[] startingDeck = new int[] { 1,2,3,4,5,6 };
+        int[] shuffledDeck1 = Shuffle.shuffleDeck(startingDeck);
     }
 
     // Update is called once per frame
