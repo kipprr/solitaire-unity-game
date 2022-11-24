@@ -38,14 +38,14 @@ public class ShuffleTest
 
     [Test]
     public void ShouldShuffleACardDeckInPlace() {
-        Card[] deck = new Card[2];
-        deck[0] = new Card(id: 1, suit: Suit.Spade, value: 1);
-        deck[1] = new Card(id: 2, suit: Suit.Spade, value: 2);
-        Card[] startingDeck = new Card[2];
-        Array.Copy(deck, startingDeck, 2);
+        Card[] deck = new Card[6];
+        for (int i = 0; i < 6; i++) {
+            deck[i] = new Card(id: i+1, suit: Suit.Spade, value: i+1);
+        }
+        Card[] startingDeck = new Card[6];
+        Array.Copy(deck, startingDeck, 6);
 
         Shuffle.shuffleDeck(deck);
-        Debug.Log(Utils.stringifyCardDeck(deck));
 
         Assert.That(deck, Is.Not.Null);
         Assert.That(deck, Is.EquivalentTo(startingDeck));

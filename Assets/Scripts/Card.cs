@@ -15,7 +15,7 @@ public enum Color {
     Red
 }
 
-public class Card {
+public class Card : IEquatable<Card> {
     private int  _id;
     private bool _isFaceUp;
     private Suit _suit;
@@ -35,6 +35,25 @@ public class Card {
         } else {
             _color = Color.Black;
         }
+    }
+
+    public bool Equals(Card other){
+		if (other == null) { return false;}
+        if (_id == other.getId()) {
+            return true;
+        }
+        return false;
+	}
+
+    public override bool Equals(object obj){
+		if (ReferenceEquals(null, obj)) return false;
+        if (ReferenceEquals(this, obj)) return true;
+        if (obj.GetType() != GetType()) return false;
+		return Equals(obj as Card);
+	}
+
+    public override string ToString() {
+        return Utils.stringify(this, true);
     }
 
     public int getId() {
