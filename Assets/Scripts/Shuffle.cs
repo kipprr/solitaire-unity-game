@@ -16,10 +16,9 @@ using UnityEngine;
             return deck;
         }
 
-        public static Card[] shuffleDeck(Card[] deck) {
-            for (int i = deck.Length - 1; i > 0; i--) {
+        public static List<Card> shuffleDeck(List<Card> deck) {
+            for (int i = deck.Count - 1; i > 0; i--) {
                 int randomIndex = RandomNumberGenerator.GetInt32(0, i+1);
-
                 Card temp = deck[i];
                 deck[i] = deck[randomIndex];
                 deck[randomIndex] = temp;

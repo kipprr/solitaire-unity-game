@@ -15,11 +15,11 @@ public static class Utils
         return str;
      }
 
-     public static string stringifyCardDeck(Card[] deck) {
+     public static string stringifyCardDeck(Card[] deck, bool abbreviated = false) {
         string str = "[";
         foreach (Card card in deck)
         {
-            str = str + stringify(card, true) + ", ";
+            str = str + stringify(card, abbreviated) + ", ";
         }
         str += "]";
         return str;
@@ -28,7 +28,7 @@ public static class Utils
     public static string stringify(Card card, bool abbreviated = false) {
         string str = "";
         if (abbreviated) {
-            str = $"{card.getId()}({valueToString(card.getValue())}{card.getSuit().ToString()[0]})";
+            str = $"{card.getId()}({card.getSuit().ToString()[0]}{valueToString(card.getValue())})";
         } else {
             str = $"Card #{card.getId()}, {valueToString(card.getValue())} of {card.getSuit()} ({card.getColor()})";
         }

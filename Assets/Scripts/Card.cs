@@ -21,14 +21,17 @@ public class Card : IEquatable<Card> {
     private Suit _suit;
     private Color _color;
     private int _value;
+    public Sprite frontSprite;
+    public Sprite backSprite;
 
-    public Card(int id, Suit suit, int value, bool isFaceUp = false) {
+    public Card(int id, Suit suit, int value, Sprite cardFaceSprite, bool isFaceUp = false) {
         if( value < 1 | value > 13) {
             throw new ArgumentException("Parameter must be between 1 and 13", nameof(value));
         }
         _id = id;
         _suit = suit;
         _value = value;
+        frontSprite = cardFaceSprite;
         _isFaceUp = isFaceUp;
         if (_suit == Suit.Heart | _suit == Suit.Diamond) {
             _color = Color.Red;

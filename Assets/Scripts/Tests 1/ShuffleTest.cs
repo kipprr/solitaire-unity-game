@@ -38,12 +38,12 @@ public class ShuffleTest
 
     [Test]
     public void ShouldShuffleACardDeckInPlace() {
-        Card[] deck = new Card[6];
+        List<Card> deck = new List<Card>();
+        List<Card> startingDeck = new List<Card>();
         for (int i = 0; i < 6; i++) {
-            deck[i] = new Card(id: i+1, suit: Suit.Spade, value: i+1);
+            deck.Add(new Card(id: i+1, suit: Suit.Spade, value: i+1, cardFaceSprite: null));
+            startingDeck.Add(new Card(id: i+1, suit: Suit.Spade, value: i+1, cardFaceSprite: null));
         }
-        Card[] startingDeck = new Card[6];
-        Array.Copy(deck, startingDeck, 6);
 
         Shuffle.shuffleDeck(deck);
 
