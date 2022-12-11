@@ -20,9 +20,14 @@ public class Deck : MonoBehaviour
    }
 
    public void buildDeck(List<Card> deck) {
+        float yOffset = 0;
+        float zOffset = 0.03f;
         foreach(Card card in deck) {
-            GameObject newCard = Instantiate(cardPrefab, transform.position, Quaternion.identity);
+            GameObject newCard = Instantiate(cardPrefab, new Vector3 (transform.position.x, transform.position.y - yOffset, transform.position.z - zOffset), Quaternion.identity);
             newCard.name = card.getId().ToString();
+
+            yOffset += 0.1f;
+            zOffset += 0.03f;
         }
    }
         
@@ -30,6 +35,7 @@ public class Deck : MonoBehaviour
     void Awake() {
 
         deckList = generateDeck();
+        Shuffle.shuffleDeck(deckList);
         buildDeck(deckList);
 
     }
@@ -37,7 +43,7 @@ public class Deck : MonoBehaviour
    void Start()
     {
         
-        Shuffle.shuffleDeck(deckList);
+        //Shuffle.shuffleDeck(deckList);
 
         
     }
