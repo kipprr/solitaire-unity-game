@@ -112,3 +112,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f468fdd8e5f3b43c5b7b79e2e6a03d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFaceUp: 1
